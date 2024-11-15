@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word and Character Counter</title>
+    <style>
+        #container{
+            text-align: center;
+        }
+        #txtar{
+            width: 75vw;
+            height: 50vh;
+            border: 5px rgb(131, 129, 118) solid;
+            border-radius: 15px;
+            background-color: rgb(252, 240, 171);
+        }
+        h1{
+            color: rgb(26, 26, 142);
+            background-color: rgb(227, 201, 55);
+            border-radius: 10px;
+        }
+        #pid{
+            background-color: rgb(227, 201, 55);
+            font-size: 25px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Word and Character Counter</h1>
+        <textarea name="" id="txtar"></textarea>
+        <p id="pid"><span id="word">0</span> word and <span id="char">0</span> character</p>
+    </div>
+    <script>
+        let txtar=document.getElementById('txtar');
+        let word=document.getElementById('word');
+        let char=document.getElementById('char');
+        txtar.addEventListener('input',function(){
+            let str=this.value;
+            char.textContent=str.length;
+            let ar=str.split(' ');
+            ar=ar.filter(function(ele){
+                return ele!=='';
+            });
+            word.textContent=ar.length;
+        });
+    </script>
+</body>
+</html>
